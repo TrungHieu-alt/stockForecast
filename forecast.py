@@ -45,7 +45,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Recursive daily forecast for stock prices")
     parser.add_argument('--ticker', type=str, required=True, help='Ticker name matching cleaned csv & model')
     parser.add_argument('--seq_len', type=int, default=60)
-    parser.add_argument('--forecast_days', type=int, default=750, help='Total days to forecast')  # Tăng lên 750 ngày
+    parser.add_argument('--forecast_days', type=int, default=1000, help='Total days to forecast')  # Tăng lên 1000 ngày
     parser.add_argument('--clean_dir', type=str, default='cleanDataset')
     parser.add_argument('--checkpoint_dir', type=str, default='checkpoints')
     parser.add_argument('--output_dir', type=str, default='forecastResults')
@@ -109,7 +109,7 @@ def main():
     plt.figure(figsize=(12, 6))
     plt.plot(df['Date'], df['Close'], label='Historical')
     plt.plot(future_dates, forecast_prices, linestyle='--', label='Forecast')
-    plt.title(f"{args.ticker} Price Forecast (Recursive 1-day, 750 days)")
+    plt.title(f"{args.ticker} Price Forecast (Recursive 1-day, 1000 days)")
     plt.xlabel('Date')
     plt.ylabel('Price')
     plt.legend()
